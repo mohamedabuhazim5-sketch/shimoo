@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(255, 192, 203, 0.16), transparent 25%),
+    radial-gradient(circle at bottom left, rgba(244, 114, 182, 0.10), transparent 20%),
+    linear-gradient(to bottom, #fff8fb, #fffdfd);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #f9a8d4;
+  color: white;
+}
