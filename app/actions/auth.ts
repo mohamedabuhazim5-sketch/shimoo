@@ -3,7 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
-export async function signInAdmin(formData: FormData) {
+export async function signInAdmin(formData: FormData): Promise<void> {
   const supabase = await createClient();
 
   const email = String(formData.get("email") || "");
@@ -15,16 +15,13 @@ export async function signInAdmin(formData: FormData) {
   });
 
   if (error) {
-    return {
-      success: false,
-      message: "بيانات الدخول غير صحيحة",
-    };
+    throw new Error("بيانات الدخول غير صحيحة");
   }
 
   redirect("/admin");
 }
 
-export async function signOutAdmin() {
+export async function signOutAdmin(): Promise<void> {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect("/admin/login");

@@ -82,11 +82,12 @@ export default async function AdminPage() {
 
       <div className="grid gap-8 lg:grid-cols-2">
         <form
-          action={createCategory}
-          className="space-y-4 rounded-[2rem] border border-pink-100 bg-white p-6 shadow-sm"
-        >
-          <h2 className="text-2xl font-black text-pink-700">إضافة قسم جديد</h2>
-
+  action={async (formData) => {
+    "use server";
+    await createCategory(formData);
+  }}
+  className="space-y-4 rounded-[2rem] border border-pink-100 bg-white p-6 shadow-sm"
+>
           <input
             name="name"
             placeholder="اسم القسم"
@@ -125,9 +126,12 @@ export default async function AdminPage() {
 
       <div className="grid gap-8 lg:grid-cols-2">
         <form
-          action={createBanner}
-          className="space-y-4 rounded-[2rem] border border-pink-100 bg-white p-6 shadow-sm"
-        >
+  action={async (formData) => {
+    "use server";
+    await createBanner(formData);
+  }}
+  className="space-y-4 rounded-[2rem] border border-pink-100 bg-white p-6 shadow-sm"
+>
           <h2 className="text-2xl font-black text-pink-700">إضافة بانر جديد</h2>
 
           <input
